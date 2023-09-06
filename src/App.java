@@ -12,13 +12,15 @@ public class App {
         Suporte suporte = new Suporte();
         DemaisDepartamentos demaisDepartamentos = new DemaisDepartamentos();
 
-        var bonusSuporte = suporte.calculaBonus(200);
-        var bonusDemaisDepartamentos = demaisDepartamentos.calculaBonus(200);
-        var bonusDesenvolvimento = desenvolvimento.calculaBonus(200);
-        var bonusGerencia = gerencia.calculaBonus(200);
-        System.out.println("Bonus gerencia: " + bonusGerencia);
-        System.out.println("Bonus Dev: " + bonusDesenvolvimento);
-        System.out.println("Bonus suporte: " + bonusSuporte);
-        System.out.println("Bonus Dev: " + bonusDemaisDepartamentos);
+        TipoBonus tipoGerencia = new TipoBonus(gerencia);
+        TipoBonus tipoDesenvolvedor = new TipoBonus(desenvolvimento);
+        TipoBonus tipoSuporte = new TipoBonus(suporte);
+        TipoBonus tipoOutrosDepartamentos = new TipoBonus(demaisDepartamentos);
+
+        System.out.println("bonus gerencia: " + tipoGerencia.tipoBonus(2000));
+        System.out.println("bonus Desenvolvedor: " + tipoDesenvolvedor.tipoBonus(2000));
+        System.out.println("bonus Suporte: " + tipoSuporte.tipoBonus(2000));
+        System.out.println("bonus Outros Departamentos: "+ tipoOutrosDepartamentos.tipoBonus(2000));
+
     }
 }
